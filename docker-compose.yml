@@ -1,7 +1,7 @@
 version: "3"
 services:
   blivechat:
-    image: inscripoem/blivechat:latest
+    image: inscripoem/blivechat-memes:latest
     ports:
       - 12450:12450
     volumes:
