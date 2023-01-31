@@ -17,9 +17,6 @@ jobs:
             password: ${{ secrets.DOCKER_PASSWORD }}
         - name: Checkout
           uses: actions/checkout@v2
-        - name: Clone Repo
-          run: |
-            git clone --recursive https://gitee.com/smdsbz/blivechat.git&&cd blivechat
         - name: Set up QEMU
           uses: docker/setup-qemu-action@v1
         - name: Set up Docker Buildx
@@ -28,6 +25,7 @@ jobs:
           env:
             DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           run: |
+            git clone --recursive https://gitee.com/smdsbz/blivechat.git && cd blivechat && \
             docker buildx build \
             --platform=linux/amd64 \
             --output "type=image,push=true" \
