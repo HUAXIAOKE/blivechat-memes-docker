@@ -1,0 +1,12 @@
+version: "3"
+services:
+  blivechat:
+    image: inscripoem/blivechat:latest
+    ports:
+      - 12450:12450
+    volumes:
+      - ./data:/blivechat/data
+      - ./log:/blivechat/log
+      - ./dist:/blivechat/frontend/dist
+    environment:
+      - TZ=Asia/Shanghai
